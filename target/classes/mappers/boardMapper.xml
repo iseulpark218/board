@@ -5,7 +5,7 @@
 
 <mapper namespace="kr.co.boardMapper">
 
-	<select id="board" resultType="BoardVOAlias">
+	<select id="list" resultType="BoardVOAlias">
 		select * from GMATE_TEST.TRDOC
 	</select>
 

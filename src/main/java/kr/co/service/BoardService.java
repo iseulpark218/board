@@ -16,6 +16,6 @@ public class BoardService {
 	private SqlSession sqlSession;
 
 	public List<BoardVO> selectBoard() throws Exception {
-		return sqlSession.selectList(namespace + ".board");
+		return sqlSession.selectList(namespace + ".list");
 	}
 }
