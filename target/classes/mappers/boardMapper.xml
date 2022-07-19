@@ -8,5 +8,17 @@
 	<select id="list" resultType="BoardVOAlias">
 		select * from GMATE_TEST.TRDOC
 	</select>
-
+<!-- 	<select id="listPage" resultType="BoardVOAlias">
+		SELECT
+		BNO,TITLE,CONTENT,WRITER,REGDATE
+		FROM(SELECT BNO,TITLE,CONTENT,WRITER,REGDATE,
+		ROW_NUMBER() OVER(ORDER BY BNO DESC) AS RNUM FROM GMATE_TEST.TRDOC)
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY BNO DESC;
+	</select>
+	<select id="listCount" resultType="int">
+	<![CDATA[
+		SELECT COUNT(BNO) FROM GMATE_TEST.TRDOC WHERE BNO > 0;
+	]]>
+	</select> -->
 </mapper>
