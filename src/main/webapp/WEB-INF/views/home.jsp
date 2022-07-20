@@ -12,13 +12,18 @@ li {
 	float: left;
 	padding: 6px;
 }
+td {
+    display: table-cell;
+    text-align: center;
+}
 </style>
 </head>
 <body>
+	<p>총개수(임시):${number}</p>
 	<table>
 		<thead>
 			<tr>
-				<th>bno</th>
+				<th>no</th>
 				<th>title</th>
 				<th>content</th>
 				<th>writer</th>
@@ -26,15 +31,17 @@ li {
 			</tr>
 		</thead>
 		<tbody>
+			<c:set var="number" value="${number}" />
 			<c:forEach items="${list}" var="list">
 				<tr>
-					<th>${list.bno}</th>
-					<td>${list.title}</td>
-					<td>${list.content}</td>
-					<td>${list.writer}</td>
-					<td><fmt:formatDate value="${list.regdate}"
+					<th width="50">${number}</th>
+					<td width="150">${list.title}</td>
+					<td width="150">${list.content}</td>
+					<td width="150">${list.writer}</td>
+					<td width="200"><fmt:formatDate value="${list.regdate}"
 							pattern="yyyy-MM-dd hh:mm:ss" /></td>
 				</tr>
+				<c:set var="number" value="${number-1}" />
 			</c:forEach>
 		</tbody>
 	</table>
