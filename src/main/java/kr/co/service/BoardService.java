@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.VO.BoardVO;
 import kr.co.VO.Criteria;
+import kr.co.VO.SearchCriteria;
 
 @Service
 public class BoardService {
@@ -22,12 +23,22 @@ public class BoardService {
 //		return sqlSession.selectList(namespace + ".list");
 //	}
 
-	public List<BoardVO> list(Criteria cri) throws Exception {
-		return sqlSession.selectList(namespace + ".listPage", cri);
-	}
+	// 목록 페이징 조회
+//	public List<BoardVO> list(Criteria cri) throws Exception {
+//		return sqlSession.selectList(namespace + ".listPage", cri);
+//	}
+//
+//	public int listCount() throws Exception {
+//		return sqlSession.selectOne(namespace + ".listCount");
+//	}
 
-	public int listCount() throws Exception {
-		return sqlSession.selectOne(namespace + ".listCount");
+	// 목록 페이징+검색 조회
+	public List<BoardVO> list(SearchCriteria scri) throws Exception {
+		return sqlSession.selectList(namespace + ".listPage", scri);
+	}
+	
+	public int listCount(SearchCriteria scri) throws Exception {
+		return sqlSession.selectOne(namespace + ".listCount", scri);
 	}
 
 }
